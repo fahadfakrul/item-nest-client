@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar flex justify-between  bg-[#1b263b] fixed z-10">
       <div >
         
-        <p className="btn btn-ghost text-2xl font-extrabold text-[#65ade3] logo">ItemNest</p>
+        <p className="btn btn-ghost text-2xl font-extrabold text-[#7c8fda] logo">ItemNest</p>
       </div>
       <div className="form-control">
           <input
@@ -54,16 +60,16 @@ const Navbar = () => {
             <>
               <Link to="/login">
                 <button
-                  className="btn rounded-full px-6  dark:bg-[#47CCC8] dark:text-gray-50
-            hover:text-[#2d3663] hover:bg-gray-50 lg:mr-2"
+                  className="btn btn-ghost rounded-full px-6  dark:bg-[#7c8fda] dark:text-gray-50
+            hover:text-[#7c8fda] hover:bg-gray-50 lg:mr-2"
                 >
                   Log in
                 </button>
               </Link>
               <Link to="/signup">
                 <button
-                  className="btn rounded-full px-6 hidden md:inline-block dark:bg-[#47CCC8] dark:text-gray-50
-            hover:text-[#2d3663] hover:bg-gray-50"
+                  className="btn btn-ghost rounded-full px-6 hidden md:inline-block dark:bg-[#7c8fda] dark:text-gray-50
+            hover:text-[#7c8fda] hover:bg-gray-50"
                 >
                   Sign up
                 </button>
