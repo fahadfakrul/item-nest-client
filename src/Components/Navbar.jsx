@@ -9,7 +9,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar flex justify-between  bg-[#1b263b] fixed z-10">
+    <div className="navbar flex justify-between  bg-[#1b263b] fixed z-40">
       <div >
         
         <p className="btn btn-ghost text-2xl font-extrabold text-[#7c8fda] logo">ItemNest</p>

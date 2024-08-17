@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Categories from "./Categories/Categories";
+import { MdFilterList } from "react-icons/md";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
@@ -24,25 +25,16 @@ const Sidebar = () => {
           </div>
           <div className="flex-none">
             <button onClick={handleToggle} className="btn btn-square btn-ghost">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block w-5 h-5 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+            <button  className="btn btn-square btn-ghost px-10 text-gray-500">
+            <div className="flex items-center gap-2">Filter
+            <MdFilterList size={24}></MdFilterList></div>
+        </button>
             </button>
           </div>
         </div>
       </div>
       <div
-        className={`z-10 md:fixed  overflow-x-hidden w-64 space-y-5 px-2 py-4 transform mt-[67px] absolute inset-y-0 left-0 bg-white text-black ${
+        className={`z-10  overflow-x-hidden w-64 space-y-5 px-2 py-4 transform mt-[67px] absolute inset-y-0 left-0 bg-white text-black ${
           isActive && "-translate-x-full"
         } md:translate-x-0 transition duration-200 ease-in-out`}
       >
