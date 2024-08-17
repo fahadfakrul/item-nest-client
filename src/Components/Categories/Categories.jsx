@@ -4,7 +4,8 @@ import ReactSlider from "react-slider";
 import { ProductContext } from "../../Providers/ProductProvider";
 
 const Categories = () => {
-  const { setBrand, setCategory, setPriceRange, category, brand } = useContext(ProductContext);
+  const { setBrand, setCategory, setPriceRange, category, brand } =
+    useContext(ProductContext);
 
   const handleCategoryChange = (e) => {
     const { value, checked } = e.target;
@@ -21,14 +22,12 @@ const Categories = () => {
   };
 
   const handleBrandChange = (e) => {
-    const {value , checked} = e.target;
+    const { value, checked } = e.target;
     if (checked) {
       setBrand((prevBrands) => [...prevBrands, value]);
     } else {
       // If unchecked, remove the category from the array
-      setBrand((prevBrands) =>
-        prevBrands.filter((brand) => brand !== value)
-      );
+      setBrand((prevBrands) => prevBrands.filter((brand) => brand !== value));
     }
     setBrand(e.target.value);
   };
@@ -97,10 +96,25 @@ const Categories = () => {
       <h2 className="text- font-bold">Brand Names</h2>
       <form className="my-2">
         {[
-          "BrandX", "SoundPro", "GameTech", "AdventureCam", "BeatBox", "PhoneX",
-          "FitLife", "EcoHome", "QuickBoil", "CookMaster", "CleanBot",
-          "SmileCare", "WorkComfort", "ChargeQuick", "ProjectPro", "BagElite",
-          "SafeWatch", "PureAir", "Foodie"
+          "BrandX",
+          "SoundPro",
+          "GameTech",
+          "AdventureCam",
+          "BeatBox",
+          "PhoneX",
+          "FitLife",
+          "EcoHome",
+          "QuickBoil",
+          "CookMaster",
+          "CleanBot",
+          "SmileCare",
+          "WorkComfort",
+          "ChargeQuick",
+          "ProjectPro",
+          "BagElite",
+          "SafeWatch",
+          "PureAir",
+          "Foodie",
         ].map((brandName) => (
           <div className="form-control" key={brandName}>
             <label className="label cursor-pointer">

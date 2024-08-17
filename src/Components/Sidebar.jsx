@@ -10,12 +10,12 @@ const Sidebar = () => {
   };
   return (
     <div className="">
+      {/* small screen filter side bar */}
       <div className=" md:hidden">
         <div className="navbar bg-base-100">
           <div className="flex-1">
             <Link to="/">
               <div className="flex items-center gap-3">
-                {/* <img className="h-10 w-10" src={logo} alt="" /> */}
                 <p className="text-lg md:text-xl font-semibold font-niramit">
                   Proximity <br />{" "}
                   <span className=" md:text-sm  text-[#7c8fda]">Picks</span>
@@ -24,7 +24,7 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className="flex-none">
-          <button
+            <button
               onClick={handleToggle}
               className="btn btn-square btn-ghost px-10 text-gray-500"
             >

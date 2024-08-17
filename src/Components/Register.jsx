@@ -20,14 +20,13 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo =  form.image.value;
+    const photo = form.image.value;
 
     try {
       setLoading(true);
-      //2. User Registration
       const result = await createUser(email, password);
       console.log(result);
-
+      //update user name and photo url
       await updateUserProfile(name, photo);
       navigate("/");
       Swal.fire({
@@ -47,12 +46,11 @@ const Register = () => {
     }
   };
 
-  
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle()
+      await signInWithGoogle();
 
-      navigate('/')
+      navigate("/");
       Swal.fire({
         icon: "success",
         title: "Signed up successfully!",
@@ -60,7 +58,7 @@ const Register = () => {
         timer: 1500,
       });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       Swal.fire({
         icon: "error",
         title: "Sign up failed",
@@ -68,7 +66,7 @@ const Register = () => {
         timer: 1500,
       });
     }
-  }
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">

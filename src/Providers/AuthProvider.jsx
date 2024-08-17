@@ -15,7 +15,7 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
-  const [user , setUser] = useState(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
@@ -35,8 +35,8 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
-    })
-  }
+    });
+  };
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     loading,
     setLoading,
-    updateUserProfile
+    updateUserProfile,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
