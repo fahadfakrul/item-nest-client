@@ -1,0 +1,38 @@
+
+.horizontal-slider .example-track{
+    top: 20px;
+    height: 10px;
+    
+}
+
+.example-track.example-track-0{
+    background-color: rgb(209, 209, 209);
+    border-radius: 12px;
+}
+.example-track.example-track-1{
+    background: #7c8fda;
+    border-radius: 12px;
+    z-index: 2;
+}
+.example-track.example-track-2{
+    background:  rgb(209, 209, 209);
+    border-radius: 12px;
+}
+
+
+.example-thumb{
+    top: 1px;
+    width: 50px;
+    outline: none;
+    
+}
+
+.checkbox{
+    height: 1rem;
+    width: 1rem;
+}
+
+.label{
+padding-top: 0.25rem;
+padding-bottom: 0.25rem;
+}

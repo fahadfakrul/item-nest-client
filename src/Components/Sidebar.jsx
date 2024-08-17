@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Categories from "./Categories/Categories";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
@@ -45,16 +46,7 @@ const Sidebar = () => {
           isActive && "-translate-x-full"
         } md:translate-x-0 transition duration-200 ease-in-out`}
       >
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
-        <h1>JHGk</h1>
+        <Categories></Categories>
       </div>
     </div>
   );

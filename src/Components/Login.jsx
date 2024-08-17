@@ -1,11 +1,14 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../assets/pictures/login.jpg"
 import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { FaSpinner } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { signIn, loading ,setLoading} = useAuth();
+    const { signIn, loading , setLoading, signInWithGoogle} = useAuth();
     const from = location.state?.from?.pathname || "/";
     const handleLogin = (event) => {
       event.preventDefault();
@@ -36,6 +39,28 @@ const Login = () => {
           });
         });
     };
+    
+    const handleGoogleSignIn = async () => {
+        try {
+          await signInWithGoogle()
+    
+          navigate('/')
+          Swal.fire({
+            icon: "success",
+            title: "Signed up successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } catch (err) {
+          console.log(err)
+          Swal.fire({
+            icon: "error",
+            title: "Sign up failed",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      }
     return (
         <div>
         <div className="hero min-h-screen bg-base-200">
@@ -75,18 +100,27 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button
-                    className="btn rounded-full px-6 border-none dark:bg-[#7c8fda] dark:text-gray-50
-              hover:text-[#2d3663] hover:bg-gray-50"
+                  <button disabled={loading}
+                    className="disabled:cursor-not-allowed btn rounded-full px-6 border-none dark:bg-[#7c8fda] dark:text-gray-50
+              hover:text-[#7c8fda] hover:bg-gray-50"
                     type="submit"
                   >
-                    {/* {loading ? (
+                    {loading ? (
                       <FaSpinner className="animate-spin m-auto"></FaSpinner>
                     ) : (
                       "Log in"
-                    )} */}
+                    )}
                   </button>
                 </div>
+                <button
+                disabled={loading}
+                onClick={handleGoogleSignIn}
+                className="disabled:cursor-not-allowed flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 rounded-full cursor-pointer"
+              >
+                <FcGoogle size={32} />
+
+                <p>Continue with Google</p>
+              </button>
                 <p>
                   <small>
                     New Here?{" "}
