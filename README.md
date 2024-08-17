@@ -44,5 +44,6 @@ This is the frontend for the Product Catalog project, a full-stack single-page w
   - Create a new project.
   - Enable Authentication and choose Google and Email/Password sign-in methods.
   - Copy the Firebase configuration keys and paste them into the .env file as shown above.
+## Server link: https://github.com/fahadfakrul/item-nest-server
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss your ideas.
