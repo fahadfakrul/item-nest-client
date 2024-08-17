@@ -1,6 +1,6 @@
 
 const ProductCard = ({product}) => {
-    const {productImage,productName,createdAt,category,price,brandName,description,_id}=product;
+    const {productImage,productName,createdAt,category,price,brandName,description}=product;
     return (
         <div className="">
            <article className="flex flex-col rounded-lg border  shadow-xl h-[550px] dark:bg-gray-50 group">

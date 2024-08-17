@@ -9,7 +9,9 @@ const Products = () => {
   const [products] = useProducts();
   const { searchTerm ,brand,priceRange,category } = useContext(ProductContext);
   const [isloading, setIsLoading] = useState(false);
-  const [finalProducts, setFinalProducts] = useState(products);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [finalProducts, setFinalProducts] = useState([]);
 
   const handleSpotsFilter = (sortOption) => {
     setIsLoading(true);
@@ -30,16 +32,20 @@ const Products = () => {
     setIsLoading(true);
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/products`, {
+        const response = await axios.get(`https://item-nest-server.vercel.app/products`, {
           params: {
             search: searchTerm,
             brand: brand,
             category: category,
             minPrice: priceRange[0],
             maxPrice: priceRange[1],
+            page: currentPage,
+            limit: 10
           },
         });
-        setFinalProducts(response.data);
+        setCurrentPage(response.data.currentPage);
+        setTotalPages(response.data.totalPages);
+        setFinalProducts(response.data.products);
       } catch (error) {
         console.error("Failed to fetch products:", error);
       } finally {
@@ -47,7 +53,13 @@ const Products = () => {
       }
     };
     fetchProducts();
-  }, [searchTerm, brand, category, priceRange]);
+  }, [searchTerm, brand, category, priceRange,currentPage]);
+
+  const handlePageChange = (newPage) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
 
   if (isloading) return <p>Loading...</p>;
   return (
@@ -77,6 +89,17 @@ const Products = () => {
         {finalProducts.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
+      </div>
+      <div className="pagination-controls text-center">
+        <button className="btn underline mr-2" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span className="font-semibold">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button className="btn underline ml-2" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+          Next
+        </button>
       </div>
     </div>
   );
