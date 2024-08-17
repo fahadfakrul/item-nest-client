@@ -16,19 +16,21 @@ const Sidebar = () => {
             <Link to="/">
               <div className="flex items-center gap-3">
                 {/* <img className="h-10 w-10" src={logo} alt="" /> */}
-                <a className="text-lg md:text-xl font-semibold font-niramit">
+                <p className="text-lg md:text-xl font-semibold font-niramit">
                   Proximity <br />{" "}
                   <span className=" md:text-sm  text-[#7c8fda]">Picks</span>
-                </a>
+                </p>
               </div>
             </Link>
           </div>
           <div className="flex-none">
-            <button onClick={handleToggle} className="btn btn-square btn-ghost">
-            <button  className="btn btn-square btn-ghost px-10 text-gray-500">
-            <div className="flex items-center gap-2">Filter
-            <MdFilterList size={24}></MdFilterList></div>
-        </button>
+          <button
+              onClick={handleToggle}
+              className="btn btn-square btn-ghost px-10 text-gray-500"
+            >
+              <div className="flex items-center gap-2">
+                Filter <MdFilterList size={24}></MdFilterList>
+              </div>
             </button>
           </div>
         </div>

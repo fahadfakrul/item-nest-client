@@ -4,11 +4,41 @@ import ReactSlider from "react-slider";
 import { ProductContext } from "../../Providers/ProductProvider";
 
 const Categories = () => {
-    const { category, setCategory, brand, setBrand, priceRange, setPriceRange, sortOption, setSortOption } = useContext(ProductContext);
+  const { setBrand, setCategory, setPriceRange, category, brand } = useContext(ProductContext);
+
+  const handleCategoryChange = (e) => {
+    const { value, checked } = e.target;
+
+    // If checked, add the category to the array
+    if (checked) {
+      setCategory((prevCategories) => [...prevCategories, value]);
+    } else {
+      // If unchecked, remove the category from the array
+      setCategory((prevCategories) =>
+        prevCategories.filter((category) => category !== value)
+      );
+    }
+  };
+
+  const handleBrandChange = (e) => {
+    const {value , checked} = e.target;
+    if (checked) {
+      setBrand((prevBrands) => [...prevBrands, value]);
+    } else {
+      // If unchecked, remove the category from the array
+      setBrand((prevBrands) =>
+        prevBrands.filter((brand) => brand !== value)
+      );
+    }
+    setBrand(e.target.value);
+  };
+  const handlePriceChange = (newPriceRange) => {
+    setPriceRange(newPriceRange);
+  };
   return (
     <div>
       <h2 className="text- font-bold">Price Range</h2>
-      <div className="w-9/12 mx-auto  h-12 ">
+      <div className="w-9/12 mx-auto h-12">
         <ReactSlider
           className="horizontal-slider"
           thumbClassName="example-thumb"
@@ -17,77 +47,74 @@ const Categories = () => {
           min={0}
           max={3000}
           ariaLabel={["Lower thumb", "Upper thumb"]}
-          ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-          renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+          renderThumb={(props, state) => (
+            <div {...props} key={state.index}>
+              {state.valueNow}
+            </div>
+          )}
           pearling
           minDistance={10}
-          onBeforeChange={(value, index) =>
-            console.log(`onBeforeChange: ${JSON.stringify({ value, index })}`)
-          }
-          onChange={(value, index) =>
-            console.log(`onChange: ${JSON.stringify({ value, index })}`)
-          }
-          onAfterChange={(value, index) =>
-            console.log(`onAfterChange: ${JSON.stringify({ value, index })}`)
-          }
+          onAfterChange={handlePriceChange}
         />
       </div>
-      <h2 className="text- font-bold">Brand Names</h2>
-      <div>
-        <select onChange={(e) => setCategory(e.target.value)} value={category}>
-        <option value="Electronics">Electronics</option>
-        </select>
-      </div>
+
       <h2 className="text- font-bold">Category Names</h2>
       <form className="my-2">
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
+        {[
+          "Electronics",
+          "Computers",
+          "Cameras",
+          "Audio",
+          "Mobile Phones",
+          "Wearables",
+          "Home Automation",
+          "Kitchen Appliances",
+          "Home Appliances",
+          "Personal Care",
+          "Furniture",
+          "Mobile Accessories",
+          "Accessories",
+          "Security",
+          "Tools",
+          "Home Comfort",
+          "Outdoor",
+          "Health",
+        ].map((cat) => (
+          <div className="form-control" key={cat}>
+            <label className="label cursor-pointer">
+              <span className="label-text">{cat}</span>
+              <input
+                type="checkbox"
+                value={cat}
+                onChange={handleCategoryChange}
+                className="checkbox bg-gray-200"
+                checked={category.includes(cat)}
+              />
+            </label>
+          </div>
+        ))}
+      </form>
+      <h2 className="text- font-bold">Brand Names</h2>
+      <form className="my-2">
+        {[
+          "BrandX", "SoundPro", "GameTech", "AdventureCam", "BeatBox", "PhoneX",
+          "FitLife", "EcoHome", "QuickBoil", "CookMaster", "CleanBot",
+          "SmileCare", "WorkComfort", "ChargeQuick", "ProjectPro", "BagElite",
+          "SafeWatch", "PureAir", "Foodie"
+        ].map((brandName) => (
+          <div className="form-control" key={brandName}>
+            <label className="label cursor-pointer">
+              <span className="label-text">{brandName}</span>
+              <input
+                type="checkbox"
+                value={brandName}
+                onChange={handleBrandChange}
+                className="checkbox bg-gray-200"
+                checked={brand.includes(brandName)}
+              />
+            </label>
+          </div>
+        ))}
       </form>
     </div>
   );

@@ -5,7 +5,7 @@ const ProductProvider = ({children}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [category, setCategory] = useState([]);
     const [brand, setBrand] = useState('');
-    const [priceRange, setPriceRange] = useState([0, 1000]);
+    const [priceRange, setPriceRange] = useState([0, 1500]);
     const [sortOption, setSortOption] = useState('');
 
     
