@@ -22,7 +22,7 @@ const Navbar = () => {
             type="text"
             placeholder="Search "
             value={searchTerm}
-            on
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="input input-bordered w-28 md:w-auto"
           />
         </div>

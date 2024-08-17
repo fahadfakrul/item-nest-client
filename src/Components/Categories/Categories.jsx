@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import "./Categories.css";
 import ReactSlider from "react-slider";
+import { ProductContext } from "../../Providers/ProductProvider";
 
 const Categories = () => {
+    const { category, setCategory, brand, setBrand, priceRange, setPriceRange, sortOption, setSortOption } = useContext(ProductContext);
   return (
     <div>
       <h2 className="text- font-bold">Price Range</h2>
@@ -30,56 +33,11 @@ const Categories = () => {
         />
       </div>
       <h2 className="text- font-bold">Brand Names</h2>
-      <form className="my-2">
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">Remember me</span>
-            <input type="checkbox"  className="checkbox bg-gray-200" />
-          </label>
-        </div>
-      </form>
+      <div>
+        <select onChange={(e) => setCategory(e.target.value)} value={category}>
+        <option value="Electronics">Electronics</option>
+        </select>
+      </div>
       <h2 className="text- font-bold">Category Names</h2>
       <form className="my-2">
         <div className="form-control">

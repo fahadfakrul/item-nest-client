@@ -1,6 +1,6 @@
 
 const ProductCard = ({product}) => {
-    const {productImage,productName,category,price,brandName,description,_id}=product;
+    const {productImage,productName,createdAt,category,price,brandName,description,_id}=product;
     return (
         <div className="">
            <article className="flex flex-col rounded-lg border  shadow-xl h-[550px] dark:bg-gray-50 group">
@@ -32,8 +32,15 @@ const ProductCard = ({product}) => {
         </div>
         <div className="flex-1 mt-3">
             <p className="text-xl font-semibold font-serif">Price:$ {price}</p>
+            
             {/* <p>Slots: {slots} left</p> */}
         </div>
+        <p className="text-xs  ">Created At: {new Date(createdAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })}
+            </p>
         {/* <Link to={`/testDetails/${_id}`}><button className="btn mt-3 rounded-full px-6 border-none dark:bg-[#2d3663] dark:text-gray-50
             hover:text-[#2d3663] hover:bg-gray-300 transition hover:scale-x-110">Details <FaArrowRight></FaArrowRight></button></Link> */}
       </div>
