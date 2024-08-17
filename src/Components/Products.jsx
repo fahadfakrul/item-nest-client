@@ -1,11 +1,14 @@
 import { IoChevronDown } from "react-icons/io5";
 import useProducts from "../Hooks/useProducts";
 import ProductCard from "./ProductCard";
-import {  useState } from "react";
+import {  useContext, useEffect, useState } from "react";
+import { ProductContext } from "../Providers/ProductProvider";
+import axios from "axios";
 
 
 const Products = () => {
     const [products] = useProducts()
+    const { searchTerm } = useContext(ProductContext);
     const [isloading, setIsLoading] = useState(false);
     const [finalProducts, setFinalProducts] = useState(products)
    
@@ -23,6 +26,22 @@ const Products = () => {
         setFinalProducts(sortedProducts);
         setIsLoading(false)
     };
+    useEffect(() => {
+        setIsLoading(true);
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/products`, {
+                    params: { search: searchTerm },
+                });
+                setFinalProducts(response.data);
+            } catch (error) {
+                console.error("Failed to fetch products:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchProducts();
+    }, [searchTerm]);
 
     if (isloading) return <p>Loading...</p>;
     return (
