@@ -10,9 +10,9 @@ const Categories = () => {
           className="horizontal-slider"
           thumbClassName="example-thumb"
           trackClassName="example-track"
-          defaultValue={[500, 50000]}
+          defaultValue={[50, 1500]}
           min={0}
-          max={100000}
+          max={3000}
           ariaLabel={["Lower thumb", "Upper thumb"]}
           ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
           renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
@@ -34,49 +34,49 @@ const Categories = () => {
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
       </form>
@@ -85,49 +85,49 @@ const Categories = () => {
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text">Remember me</span>
-            <input type="checkbox" defaultChecked className="checkbox bg-gray-200" />
+            <input type="checkbox"  className="checkbox bg-gray-200" />
           </label>
         </div>
       </form>

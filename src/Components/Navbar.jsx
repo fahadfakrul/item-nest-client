@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import { useContext } from "react";
+import { ProductContext } from "../Providers/ProductProvider";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const { searchTerm, setSearchTerm } = useContext(ProductContext);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -18,6 +21,8 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search "
+            value={searchTerm}
+            on
             className="input input-bordered w-28 md:w-auto"
           />
         </div>

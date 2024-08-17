@@ -18,7 +18,7 @@ const Sidebar = () => {
                 {/* <img className="h-10 w-10" src={logo} alt="" /> */}
                 <a className="text-lg md:text-xl font-semibold font-niramit">
                   Proximity <br />{" "}
-                  <span className=" md:text-sm  text-[#65ade3]">Picks</span>
+                  <span className=" md:text-sm  text-[#7c8fda]">Picks</span>
                 </a>
               </div>
             </Link>
@@ -35,7 +35,7 @@ const Sidebar = () => {
       </div>
       <div
         className={`z-10  overflow-x-hidden w-64 space-y-5 px-2 py-4 transform mt-[67px] absolute inset-y-0 left-0 bg-white text-black ${
-          isActive && "-translate-x-full"
+          !isActive && "-translate-x-full"
         } md:translate-x-0 transition duration-200 ease-in-out`}
       >
         <Categories></Categories>

@@ -1,7 +1,8 @@
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import Products from "../Components/Products";
 import Sidebar from "../Components/Sidebar";
-import Sortingbar from "../Components/Sortingbar";
+
 
 const Main = () => {
   return (
@@ -12,20 +13,9 @@ const Main = () => {
             <Sidebar></Sidebar>
           
             <div className="flex-1 min-h-[calc(100vh-67px)] md:ml-64 border-l-2 border-gray-300">
-              <Sortingbar></Sortingbar>
-              <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
-            <h2>jkdfgh</h2>
+             
+              <Products></Products>
+              
             </div>
       </div>
       <Footer></Footer>
