@@ -1,12 +1,12 @@
 import { IoChevronDown } from "react-icons/io5";
-import useProducts from "../Hooks/useProducts";
+// import useProducts from "../Hooks/useProducts";
 import ProductCard from "./ProductCard";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../Providers/ProductProvider";
 import axios from "axios";
 
 const Products = () => {
-  const [products] = useProducts();
+  // const [products] = useProducts();
   const { searchTerm, brand, priceRange, category } =
     useContext(ProductContext);
   const [isloading, setIsLoading] = useState(false);
@@ -16,7 +16,7 @@ const Products = () => {
 
   const handleSpotsFilter = (sortOption) => {
     setIsLoading(true);
-    let sortedProducts = [...products];
+    let sortedProducts = [...finalProducts];
     if (sortOption === "Ascending") {
       sortedProducts.sort((a, b) => a.price - b.price);
     } else if (sortOption === "Descending") {
